@@ -14,7 +14,7 @@ b = tf.constant([5, 5, 5], tf.float32)
 c = a + b  # short for tf.add(a, b)
 
 with tf.Session() as sess:
-	print sess.run(c) # error because a doesn’t have any value
+	#print sess.run(c)
 
 	# feed [1, 2, 3] to placeholder a via the dict {a: [1, 2, 3]}
 	# fetch value of c
@@ -23,11 +23,12 @@ with tf.Session() as sess:
 
 # Example 2: feed_dict with variables
 a = tf.add(2, 5)
-b = tf.mul(a, 3)
+b = tf.multiply(a, 3)
 
 with tf.Session() as sess:
 	# define a dictionary that says to replace the value of 'a' with 15
-	replace_dict = {a: 15}
+    replace_dict = {a: 15}
 
 	# Run the session, passing in 'replace_dict' as the value to 'feed_dict'
-	sess.run(b, feed_dict=replace_dict) # >> 45
+    print sess.run(b, feed_dict=replace_dict) # >> 45
+    print sess.run(b, feed_dict={a: 20}) # >> 45

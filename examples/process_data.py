@@ -14,7 +14,7 @@ import tensorflow as tf
 # Parameters for downloading data
 DOWNLOAD_URL = 'http://mattmahoney.net/dc/'
 EXPECTED_BYTES = 31344016
-DATA_FOLDER = '/Users/Chip/data/'
+DATA_FOLDER = '/Users/shaowei/allshaoweifiles/github/tf-stanford-tutorials/data/'
 FILE_NAME = 'text8.zip'
 
 def download(file_name, expected_bytes):
@@ -33,11 +33,11 @@ def download(file_name, expected_bytes):
     return file_path
 
 def read_data(file_path):
-    """ Read data into a list of tokens 
+    """ Read data into a list of tokens
     There should be 17,005,207 tokens
     """
     with zipfile.ZipFile(file_path) as f:
-        words = tf.compat.as_str(f.read(f.namelist()[0])).split() 
+        words = tf.compat.as_str(f.read(f.namelist()[0])).split()
         # tf.compat.as_str() converts the input into the string
     return words
 
